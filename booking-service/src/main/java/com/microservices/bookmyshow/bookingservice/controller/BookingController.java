@@ -23,7 +23,7 @@ public class BookingController
     private BookingServiceRepository repo;
 
     @PostMapping("/book")
-    public Object confirmSeats(@RequestBody SeatBookingDTO seatBookingDTO)
+    public Object blockSeats(@RequestBody SeatBookingDTO seatBookingDTO)
     {
         seatBookingDTO.setStatus(1);
         BookingHistory bookingHistory = proxy.bookSeats(seatBookingDTO);

@@ -1,11 +1,10 @@
-package com.microservices.bookmyshow.theatrecatalogueservice.dto;
+package com.microservices.bookmyshow.paymentservice.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class BookingDetailsDTO
 {
-
 
     private Integer bookingId;
 
@@ -90,6 +89,5 @@ public class BookingDetailsDTO
     {
         this.selectedSeats = selectedSeats;
     }
-
 
 }

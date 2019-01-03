@@ -1,9 +1,11 @@
 package com.microservices.bookmyshow.bookingservice.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -11,7 +13,7 @@ public class BookingHistory
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer bookingId;
 
     private int showId;
@@ -19,21 +21,22 @@ public class BookingHistory
     private double totalCost;
 
     private java.time.LocalDateTime bookingTime;
-    private int numberOfTickets;
+
+    private List<String> selectedSeats;
 
     public BookingHistory()
     {
 
     }
 
-    public BookingHistory(int showId, String userName, double totalCost, LocalDateTime bookingTime, int numberOfTickets)
+    public BookingHistory(int showId, String userName, double totalCost, LocalDateTime bookingTime, List<String> selectedSeats)
     {
         super();
         this.showId = showId;
         this.userName = userName;
         this.totalCost = totalCost;
         this.bookingTime = bookingTime;
-        this.numberOfTickets = numberOfTickets;
+        this.setSelectedSeats(selectedSeats);
     }
 
     public Integer getBookingId()
@@ -86,15 +89,14 @@ public class BookingHistory
         this.bookingTime = bookingTime;
     }
 
-    public int getNumberOfTickets()
+    public List<String> getSelectedSeats()
     {
-        return numberOfTickets;
+        return selectedSeats;
     }
 
-    public void setNumberOfTickets(int numberOfTickets)
+    public void setSelectedSeats(List<String> selectedSeats)
     {
-        this.numberOfTickets = numberOfTickets;
+        this.selectedSeats = selectedSeats;
     }
-
 
 }

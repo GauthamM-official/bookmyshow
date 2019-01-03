@@ -7,4 +7,6 @@ import com.microservices.bookmyshow.bookingservice.entity.BookingHistory;
 public interface BookingServiceRepository extends JpaRepository<BookingHistory, Integer>
 {
 
+    public BookingHistory findByBookingId(Integer bookingId);
+
 }
